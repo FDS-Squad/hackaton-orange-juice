@@ -9,7 +9,8 @@
         "dist/**"
       ],
       "env": [
-        "PORT"
+        "PORT",
+        "DATABASE_URL"
       ]
     },
     "dev": {
