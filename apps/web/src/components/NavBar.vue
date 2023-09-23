@@ -16,13 +16,13 @@ watch(() => route.fullPath, watchRouteChange);
 
 <template>
   <header class="header">
-    <div class="wrapper">
-      <div class="logo"></div>
+    <div class="wrapper d-flex align-items-center justify-content-between">
+      <h1 class="logo m-0"></h1>
 
-      <div class="navigation">
-        <div class="theme">
+      <div class="navigation d-flex gap-3">
+        <div class="d-flex align-items-center gap-1">
           <v-icon name="fa-moon" />
-          <button class="switch">
+          <button class="switch d-flex rounded-4">
             <v-icon name="fa-circle" />
           </button>
         </div>
@@ -46,8 +46,29 @@ watch(() => route.fullPath, watchRouteChange);
               aria-label="Fechar menu"></button>
           </div>
           <nav class="offcanvas-body px-0">
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/event-details">About</RouterLink>
+            <RouterLink to="/" class="d-block py-2 px-4 mb-1">Home</RouterLink>
+            <RouterLink to="/event-details" class="d-block py-2 px-4 mb-1"
+              >About</RouterLink
+            >
+            <form class="form">
+              <label for="email" class="sr-only">Insira seu e-mail</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="e-mail"
+                class="mb-2" />
+              <label for="password" class="sr-only">Insira sua senha</label>
+              <input type="password" id="password" placeholder="senha" />
+              <p class="reminder">
+                Esqueceu sua senha? <a href="#">Clique aqui</a>
+              </p>
+              <button type="submit" class="btn btn-primary d-block mx-auto">
+                Entrar
+              </button>
+            </form>
+            <p class="text-center">
+              É novo e tem eventos a incluir? <a href="#">Cadastre-se</a>
+            </p>
           </nav>
         </div>
       </div>
@@ -58,9 +79,6 @@ watch(() => route.fullPath, watchRouteChange);
 <style scoped>
 header {
   .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 20px 30px;
   }
 
@@ -71,40 +89,36 @@ header {
   }
 
   .navigation {
-    display: flex;
-    gap: 1rem;
     width: fit-content;
-    .theme {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      .switch {
-        display: flex;
-        background: #ccc;
-        border: 2px solid #ccc;
-        border-radius: 1rem;
-        width: 40px;
-      }
+    .switch {
+      background: #ccc;
+      border: 2px solid #ccc;
+      width: 40px;
     }
   }
 
-  .menu-btn {
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    padding: 0;
-    width: 30px;
-    cursor: pointer;
-    z-index: 2;
-  }
+  .offcanvas-body {
+    > a {
+      &:hover,
+      &.router-link-exact-active {
+        background: #ccc;
+      }
+    }
 
-  .offcanvas-body > a {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    margin-bottom: 0.25rem;
-    &:hover,
-    &.router-link-exact-active {
-      background: #ccc;
+    .form {
+      margin: 8rem auto;
+      width: 15rem;
+      .reminder {
+        margin: 40px auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  header {
+    .wrapper {
+      padding: 32px 40px;
     }
   }
 }
