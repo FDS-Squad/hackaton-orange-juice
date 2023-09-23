@@ -7,6 +7,9 @@
     "build": {
       "outputs": [
         "dist/**"
+      ],
+      "env": [
+        "PORT"
       ]
     },
     "dev": {
