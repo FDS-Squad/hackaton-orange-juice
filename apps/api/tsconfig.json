@@ -1,5 +1,15 @@
 {
   "extends": "tsconfig/api.json",
+  "compilerOptions": {
+    "paths": {
+      "@/tests/*": [
+        "./tests/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
   "include": [
     "**/*.ts"
   ],
