@@ -3,6 +3,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "paths": {
+      "@/utils/*": [
+        "./utils/*"
+      ],
       "@/tests/*": [
         "./tests/*"
       ],
