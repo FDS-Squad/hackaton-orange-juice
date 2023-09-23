@@ -90,6 +90,9 @@ importers:
       '@types/module-alias':
         specifier: ^2.0.2
         version: 2.0.2
+      prisma:
+        specifier: ^5.3.1
+        version: 5.3.1
       sucrase:
         specifier: ^3.34.0
         version: 3.34.0
@@ -1247,6 +1250,11 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.6.1
+    dev: true
+
+  /@prisma/engines@5.3.1:
+    resolution: {integrity: sha512-6QkILNyfeeN67BNEPEtkgh3Xo2tm6D7V+UhrkBbRHqKw9CTaz/vvTP/ROwYSP/3JT2MtIutZm/EnhxUiuOPVDA==}
+    requiresBuild: true
     dev: true
 
   /@sinclair/typebox@0.27.8:
@@ -5244,6 +5252,15 @@ packages:
       '@jest/schemas': 29.6.0
       ansi-styles: 5.2.0
       react-is: 18.2.0
+    dev: true
+
+  /prisma@5.3.1:
+    resolution: {integrity: sha512-Wp2msQIlMPHe+5k5Od6xnsI/WNG7UJGgFUJgqv/ygc7kOECZapcSz/iU4NIEzISs3H1W9sFLjAPbg/gOqqtB7A==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 5.3.1
     dev: true
 
   /prompts@2.4.2:
