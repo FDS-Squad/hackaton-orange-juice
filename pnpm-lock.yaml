@@ -74,10 +74,16 @@ importers:
       express:
         specifier: ^4.18.2
         version: 4.18.2
+      module-alias:
+        specifier: ^2.2.3
+        version: 2.2.3
     devDependencies:
       '@types/express':
         specifier: ^4.17.18
         version: 4.17.18
+      '@types/module-alias':
+        specifier: ^2.0.2
+        version: 2.0.2
 
   apps/web:
     dependencies:
@@ -1416,6 +1422,10 @@ packages:
 
   /@types/minimist@1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
+    dev: true
+
+  /@types/module-alias@2.0.2:
+    resolution: {integrity: sha512-Oeo5NEjAceFgN8OzGiLXPswgv2GBmrDGuTnLS0sQ8g4Mq5sB5c97Hu5B+n9Gu/j+5Y+oUb4TSawHXkZ8MENGyw==}
     dev: true
 
   /@types/node@18.17.17:
@@ -4682,6 +4692,10 @@ packages:
     dependencies:
       minimist: 1.2.8
     dev: true
+
+  /module-alias@2.2.3:
+    resolution: {integrity: sha512-23g5BFj4zdQL/b6tor7Ji+QY4pEfNH784BMslY9Qb0UnJWRAt+lQGLYmRaM0KDBwIG23ffEBELhZDP2rhi9f/Q==}
+    dev: false
 
   /ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
