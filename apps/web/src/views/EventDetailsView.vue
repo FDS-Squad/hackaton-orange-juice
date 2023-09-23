@@ -21,7 +21,7 @@ const shareWA = () => {
 <template>
   <main>
     <section
-      class="event-details wrapper row justify-content-center mt-lg-4 gap-5">
+      class="event-details wrapper row justify-content-center mt-lg-4 gap-lg-5">
       <div class="card col-12 col-lg-6 p-4 mb-4 w-100">
         <img src="..." class="card-img-top" alt="..." />
         <div class="card-body pb-0">

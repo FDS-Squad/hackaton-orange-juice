@@ -106,7 +106,7 @@ header {
     }
 
     .form {
-      margin: 8rem auto;
+      margin: 5rem auto;
       width: 15rem;
       .reminder {
         margin: 40px auto;
