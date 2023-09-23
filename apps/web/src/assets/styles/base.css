@@ -1,0 +1,62 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+@import './typography.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  transition: 0.3s;
+}
+
+:root {
+  /* font-families */
+  --candara: 'Candara';
+  --open-sans: 'Open Sans';
+
+  /* colors */
+  --primary: #200943;
+  --secondary: #2f0c66;
+  --success: #133300;
+  --warning: #d44949;
+  --danger: #e54a64;
+  --neutral: #374957;
+  --black: #000;
+  --white: #fff;
+}
+
+body {
+  font-family: var(--candara), var(--open-sans), sans-serif;
+  min-height: 100vh;
+}
+
+main {
+  padding: 16px 24px;
+  @media screen and (min-width: 1280px) {
+    padding: 30px 60px;
+  }
+}
+
+input {
+  border-radius: 4px;
+  font-style: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
