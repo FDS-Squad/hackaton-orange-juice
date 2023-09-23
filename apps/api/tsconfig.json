@@ -1,6 +1,7 @@
 {
   "extends": "tsconfig/api.json",
   "compilerOptions": {
+    "outDir": "./dist",
     "paths": {
       "@/tests/*": [
         "./tests/*"
