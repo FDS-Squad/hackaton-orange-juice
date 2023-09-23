@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "dev": "sucrase-node src/server.ts --watch",
     "lint": "eslint",
     "test": "jest --passWithNoTests --no-cache --runInBand --silent --noStackTrace",
     "test:unit": "pnpm test -- --watch -c jest-unit-config.js",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.18",
-    "@types/module-alias": "^2.0.2"
+    "@types/module-alias": "^2.0.2",
+    "sucrase": "^3.34.0"
   }
 }
