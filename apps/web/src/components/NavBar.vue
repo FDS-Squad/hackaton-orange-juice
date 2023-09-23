@@ -1,5 +1,17 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
+import { watch } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const watchRouteChange = () => {
+  const btnClose = document.querySelector('.btn-close') as HTMLElement | null;
+  if (btnClose) {
+    btnClose.click();
+  }
+};
+
+watch(() => route.fullPath, watchRouteChange);
 </script>
 
 <template>
@@ -74,6 +86,16 @@ header {
         width: 40px;
       }
     }
+  }
+
+  .menu-btn {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    padding: 0;
+    width: 30px;
+    cursor: pointer;
+    z-index: 2;
   }
 
   .offcanvas-body > a {
