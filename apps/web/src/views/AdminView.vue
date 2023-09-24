@@ -52,7 +52,7 @@ const addEvent = async () => {
     <section class="wrapper mt-lg-4 mb-5">
       <h2 class="text-center mb-3 mb-lg-5">Cadastre seu evento tech!</h2>
 
-      <form class="form mx-auto" @submit.prevent="addEvent">
+      <form class="form mx-auto text-white">
         <div class="mb-4">
           <label for="event-name" class="sr-only">Nome do evento</label>
           <input
@@ -218,6 +218,13 @@ const addEvent = async () => {
 </template>
 
 <style scoped>
+h2 {
+  background-image: var(--hackaton-bg-vertical);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .form {
   max-width: 45rem;
 }

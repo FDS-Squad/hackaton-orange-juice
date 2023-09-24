@@ -16,9 +16,9 @@ const openModal = () => {
 
 <template>
   <div class="d-flex align-items-center gap-1">
-    <v-icon name="fa-moon" color="yellow" />
+    <img src="moon.png" alt="" aria-hidden="true" />
     <button class="switch d-flex rounded-4" @click="openModal">
-      <v-icon name="fa-circle" color="#212529" />
+      <span class="fa-circle"></span>
     </button>
     <button
       ref="btnOpen"
@@ -26,15 +26,21 @@ const openModal = () => {
       data-bs-toggle="modal"
       data-bs-target="#modal"
       aria-hidden="true"></button>
-    <v-icon name="fa-sun" color="yellow" />
   </div>
   <Modal :random="random" />
 </template>
 
 <style scoped>
 .switch {
-  background: #ccc;
-  border: 2px solid #ccc;
+  background: var(--black) !important;
+  border: 2px solid var(--white);
   width: 40px;
+}
+
+.fa-circle {
+  height: 17px;
+  aspect-ratio: 1/1;
+  background-image: var(--hackaton-bg-vertical) !important;
+  clip-path: circle();
 }
 </style>

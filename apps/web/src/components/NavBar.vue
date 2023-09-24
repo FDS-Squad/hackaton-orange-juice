@@ -18,18 +18,22 @@ watch(() => route.fullPath, watchRouteChange);
 
 <template>
   <header class="header">
-    <div class="wrapper d-flex align-items-center justify-content-between">
-      <h1 class="logo m-0"></h1>
+    <div class="wrapper d-flex align-items-center justify-content-between p-4">
+      <h1 class="m-0">
+        <RouterLink to="/home" aria-label="Voltar para a Home">
+          <img src="logo.png" alt="Tech42" class="logo" />
+        </RouterLink>
+      </h1>
 
       <div class="navigation d-flex gap-3">
         <Switch />
 
         <button
-          class="btn btn-primary"
+          class="menu-btn rounded-1 p-1"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target=".offcanvas">
-          <v-icon name="fa-bars" />
+          <v-icon name="fa-bars" color="#8cb4d3" scale="1.2" />
         </button>
         <div
           class="offcanvas offcanvas-end"
@@ -44,17 +48,23 @@ watch(() => route.fullPath, watchRouteChange);
               aria-label="Fechar menu"></button>
           </div>
           <nav class="offcanvas-body px-0">
-            <RouterLink to="/home" class="d-block py-2 px-4 mb-1"
+            <RouterLink
+              to="/home"
+              class="d-block py-2 px-4 mb-1 text-decoration-none fw-bold"
               >Home</RouterLink
             >
-            <RouterLink to="/event-details" class="d-block py-2 px-4 mb-1">
+            <RouterLink
+              to="/event-details"
+              class="d-block py-2 px-4 mb-1 text-decoration-none fw-bold">
               Detalhes
             </RouterLink>
-            <RouterLink to="/admin" class="d-block py-2 px-4 mb-1">
+            <RouterLink
+              to="/admin"
+              class="d-block py-2 px-4 mb-1 text-decoration-none fw-bold">
               Painel do Administrador
             </RouterLink>
             <LoginForm />
-            <p class="text-center">
+            <p class="text-center text-white">
               É novo e tem eventos a incluir? <a href="#">Cadastre-se</a>
             </p>
           </nav>
@@ -66,34 +76,31 @@ watch(() => route.fullPath, watchRouteChange);
 
 <style scoped>
 header {
-  .wrapper {
-    padding: 20px 30px;
+  .logo {
+    width: 7.5rem;
   }
 
-  .logo {
-    background: var(--primary);
-    width: 150px;
-    height: 60px;
+  .menu-btn {
+    background: rgba(177, 177, 177, 0.2) !important;
+    border: 1px solid #8cb4d3;
   }
 
   .navigation {
     width: fit-content;
   }
 
+  .offcanvas {
+    background: var(--hackaton-primary-normal-hover);
+  }
+
   .offcanvas-body {
     > a {
+      color: var(--hackaton-neutral-normal);
       &:hover,
       &.router-link-exact-active {
-        background: #ccc;
+        color: var(--hackaton-primary-normal);
+        background: var(--hackaton-neutral-normal);
       }
-    }
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  header {
-    .wrapper {
-      padding: 32px 40px;
     }
   }
 }

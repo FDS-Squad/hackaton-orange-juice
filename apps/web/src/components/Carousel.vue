@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+const router = useRouter();
+</script>
+
 <template>
   <div
     id="captions"
@@ -23,52 +28,69 @@
         aria-label="Evento em destaque 3"></button>
     </div>
     <div class="carousel-inner">
-      <!-- CARROSEL 01 -->
-      <div class="carousel-item active">
+      <div
+        class="carousel-item active"
+        role="button"
+        @click="router.push('/event-details')">
         <img
-          src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-          class="w-100 object-fit-cover"
-          alt="..." />
-        <div class="carousel-caption caption-2 d-md-block">
-          <h5 class="carousel-title fw-medium text-uppercase">
-            Título a exibir
-          </h5>
-          <p class="lh-llg">Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-      </div>
-      <!-- CARROSSEL 02 -->
-      <div class="carousel-item">
+          src="banner-php-mobile.png"
+          class="d-md-none object-fit-contain w-100"
+          alt="PHP Community Summit" />
         <img
-          src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-          class="w-100 object-fit-cover"
-          alt="..." />
-        <div class="carousel-caption caption-2 d-md-block">
-          <h5 class="carousel-title fw-medium text-uppercase">
-            Título a exibir
-          </h5>
-          <p class="lh-llg">Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-      </div>
-      <!-- CARROSSEL 03 -->
-      <div class="carousel-item">
+          src="banner-php-mobile.png"
+          class="d-none d-md-block d-xl-none object-fit-contain w-100"
+          alt="Female model wearing pink blouse in a purple background" />
         <img
-          src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-          class="w-100 object-fit-cover"
-          alt="..." />
-        <div class="carousel-caption caption-3 d-md-block">
-          <h5 class="carousel-title fw-medium text-uppercase">
-            Título a exibir
-          </h5>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
+          src="banner-php-desktop.png"
+          class="d-none d-xl-block object-fit-contain w-100"
+          alt="PHP Community Summit" />
       </div>
+
+      <div
+        class="carousel-item"
+        role="button"
+        @click="router.push('/event-details')">
+        <img
+          src="banner-codecon-mobile.png"
+          class="d-md-none object-fit-contain w-100"
+          alt="codecon feature" />
+        <img
+          src="banner-codecon-tablet.png"
+          class="d-none d-md-block d-xl-none object-fit-contain w-100"
+          alt="codecon feature" />
+        <img
+          src="banner-codecon-desktop.png"
+          class="d-none d-xl-block object-fit-contain w-100"
+          alt="codecon feature" />
+      </div>
+
+      <a
+        href="https://discord.gg/orangejuicetech"
+        target="_blank"
+        class="carousel-item"
+        role="button">
+        <img
+          src="banner-orange-mobile.png"
+          class="d-md-none object-fit-contain w-100"
+          alt="orange hackathon" />
+        <img
+          src="banner-orange-tablet.png"
+          class="d-none d-md-block d-xl-none object-fit-contain w-100"
+          alt="orange hackathon" />
+        <img
+          src="banner-orange-desktop.png"
+          class="d-none d-xl-block object-fit-contain w-100"
+          alt="orange hackathon" />
+      </a>
     </div>
     <button
       class="carousel-control-prev"
       type="button"
       data-bs-target="#captions"
       data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span
+        class="carousel-control-prev-icon text-primary"
+        aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button
@@ -85,6 +107,18 @@
 <style scoped>
 img {
   height: 250px;
+}
+
+.carousel-item:first-of-type {
+  background: linear-gradient(90deg, #28343d 38.27%, #0b161d 61.45%);
+}
+
+.carousel-item:nth-of-type(2) {
+  background: linear-gradient(180deg, #000 38.27%, #08c4f3 61.45%);
+}
+
+.carousel-item:last-of-type {
+  background: #000;
 }
 
 @media screen and (min-width: 1200px) {

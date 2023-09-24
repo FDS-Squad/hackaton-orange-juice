@@ -21,7 +21,7 @@ const shareWA = () => {
 <template>
   <main>
     <section
-      class="event-details wrapper row justify-content-center mt-lg-4 gap-lg-5">
+      class="event-details text-white wrapper row justify-content-center mt-lg-4 gap-lg-5">
       <div class="card col-12 col-lg-6 p-4 mb-4 w-100">
         <img src="..." class="card-img-top" alt="..." />
         <div class="card-body pb-0">
@@ -40,15 +40,14 @@ const shareWA = () => {
           praesentium, necessitatibus quam perspiciatis et eum quod cumque?
           Adipisci laboriosam eum dicta at ab quidem repellat.
         </div>
+        <div class="d-flex justify-content-center my-4">
+          <a class="btn text-uppercase"> Visitar site </a>
+        </div>
         <div
           class="actions d-flex justify-content-center align-items-end pt-lg-5 gap-3">
-          <button class="btn btn-primary btn-sm" @click="copyLink">
-            Copiar link
-          </button>
-          <button class="btn btn-primary btn-sm" @click="shareWA">
-            Compartilhar WP
-          </button>
-          <button class="btn btn-primary btn-sm">Visitar site</button>
+          <button class="btn btn-sm" @click="copyLink">Copiar link</button>
+          <button class="btn btn-sm" @click="shareWA">Compartilhar WP</button>
+          <button class="btn btn-sm">Visitar site</button>
         </div>
       </div>
     </section>

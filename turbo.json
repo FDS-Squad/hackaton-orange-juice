@@ -7,6 +7,10 @@
     "build": {
       "outputs": [
         "dist/**"
+      ],
+      "env": [
+        "PORT",
+        "DATABASE_URL"
       ]
     },
     "dev": {
