@@ -3,11 +3,14 @@ import { EventsListService } from '../../../src/modules/events/services';
 import { EventsListController } from '../../../src/modules/events/events-list-controller';
 
 describe('EventsListController', () => {
-  it('should list all events', async () => {
+  const makeSut = (): EventsListController => {
     const repository = new EventsRepository();
     const service = new EventsListService(repository);
-    const sut = new EventsListController(service);
+    return new EventsListController(service);
+  };
 
+  it('should list all events', async () => {
+    const sut = makeSut();
     const response = await sut.handle();
     expect(response).toHaveProperty('statusCode');
     expect(response).toHaveProperty('body');
