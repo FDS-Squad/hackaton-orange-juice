@@ -40,6 +40,10 @@ main {
   }
 }
 
+textarea {
+  resize: none;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 100%;

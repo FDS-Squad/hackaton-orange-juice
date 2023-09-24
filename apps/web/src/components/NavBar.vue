@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { watch } from 'vue';
+import { ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
 const route = useRoute();
+const btnClose = ref<HTMLElement | null>(null);
 
 const watchRouteChange = () => {
-  const btnClose = document.querySelector('.btn-close') as HTMLElement | null;
-  if (btnClose) {
-    btnClose.click();
+  if (btnClose.value) {
+    btnClose.value.click();
   }
 };
 
@@ -41,6 +41,7 @@ watch(() => route.fullPath, watchRouteChange);
           aria-label="Abrir menu">
           <div class="offcanvas-header justify-content-end">
             <button
+              ref="btnClose"
               type="button"
               class="btn-close"
               data-bs-dismiss="offcanvas"

@@ -2,6 +2,14 @@
 import { ref } from 'vue';
 
 const isRemoteLocation = ref(true);
+const textarea = ref<HTMLElement | null>(null);
+
+const handleSize = () => {
+  const element = textarea.value;
+
+  element!.style.height = 'auto';
+  element!.style.height = element!.scrollHeight + 'px';
+};
 </script>
 
 <template>
@@ -50,6 +58,18 @@ const isRemoteLocation = ref(true);
                 @change="isRemoteLocation = false" />
               <label class="form-check-label" for="in-person-event">
                 presencial
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="event-location"
+                id="hybrid-event"
+                value="hybrid"
+                @change="isRemoteLocation = false" />
+              <label class="form-check-label" for="hybrid-event">
+                híbrido
               </label>
             </div>
 
@@ -118,10 +138,11 @@ const isRemoteLocation = ref(true);
 
           <label for="description" class="sr-only">Descrição do evento</label>
           <textarea
-            name=""
+            ref="textarea"
             id="description"
-            class="form-control w-100"
-            placeholder="Descrição do evento"></textarea>
+            class="form-control overflow-hidden w-100"
+            placeholder="Descrição do evento"
+            @input="handleSize"></textarea>
         </div>
 
         <div class="actions d-flex justify-content-between w-75 mx-auto">
