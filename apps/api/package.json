@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "dev": "docker compose -f .docker/docker-compose.yml up -d && npx prisma generate && npx prisma migrate dev && nodemon",
     "lint": "eslint",
     "test": "jest --passWithNoTests --no-cache --runInBand --silent --noStackTrace",
     "test:unit": "pnpm test -- --watch -c jest-unit-config.js",
@@ -10,5 +12,19 @@
     "test:verbose": "jest --passWithNoTests --no-cache --runInBand",
     "test:staged": "pnpm test --findRelatedTests",
     "test:ci": "pnpm test:verbose --coverage"
+  },
+  "dependencies": {
+    "@prisma/client": "5.3.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "module-alias": "^2.2.3",
+    "rimraf": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "@types/module-alias": "^2.0.2",
+    "nodemon": "^3.0.1",
+    "prisma": "^5.3.1",
+    "sucrase": "^3.34.0"
   }
 }
