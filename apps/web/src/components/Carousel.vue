@@ -33,15 +33,15 @@ const router = useRouter();
         role="button"
         @click="router.push('/event-details')">
         <img
-          src="banner-php-mobile.png"
+          src="/banner-php-mobile.png"
           class="d-md-none object-fit-contain w-100"
           alt="PHP Community Summit" />
         <img
-          src="banner-php-mobile.png"
+          src="/banner-php-mobile.png"
           class="d-none d-md-block d-xl-none object-fit-contain w-100"
           alt="Female model wearing pink blouse in a purple background" />
         <img
-          src="banner-php-desktop.png"
+          src="/banner-php-desktop.png"
           class="d-none d-xl-block object-fit-contain w-100"
           alt="PHP Community Summit" />
       </div>
@@ -51,15 +51,15 @@ const router = useRouter();
         role="button"
         @click="router.push('/event-details')">
         <img
-          src="banner-codecon-mobile.png"
+          src="/banner-codecon-mobile.png"
           class="d-md-none object-fit-contain w-100"
           alt="codecon feature" />
         <img
-          src="banner-codecon-tablet.png"
+          src="/banner-codecon-tablet.png"
           class="d-none d-md-block d-xl-none object-fit-contain w-100"
           alt="codecon feature" />
         <img
-          src="banner-codecon-desktop.png"
+          src="/banner-codecon-desktop.png"
           class="d-none d-xl-block object-fit-contain w-100"
           alt="codecon feature" />
       </div>
@@ -70,15 +70,15 @@ const router = useRouter();
         class="carousel-item"
         role="button">
         <img
-          src="banner-orange-mobile.png"
+          src="/banner-orange-mobile.png"
           class="d-md-none object-fit-contain w-100"
           alt="orange hackathon" />
         <img
-          src="banner-orange-tablet.png"
+          src="/banner-orange-tablet.png"
           class="d-none d-md-block d-xl-none object-fit-contain w-100"
           alt="orange hackathon" />
         <img
-          src="banner-orange-desktop.png"
+          src="/banner-orange-desktop.png"
           class="d-none d-xl-block object-fit-contain w-100"
           alt="orange hackathon" />
       </a>

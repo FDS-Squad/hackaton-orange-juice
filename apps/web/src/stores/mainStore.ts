@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineStore } from 'pinia';
+import type { IEvent } from './eventStore';
 import HTTP from '@/utils/http';
 import h$ from '@/utils/helpers';
 
@@ -29,12 +31,23 @@ export const useMainStore = defineStore('main-store', {
           endpoints.map((endpoint) => api.get(endpoint)),
         );
         return responses;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         if (error.response && error.response.status) {
           this.error = h$.statusCodeMessage(error.response.status);
         }
         return Promise.reject(error);
+      }
+    },
+    async postData(event: IEvent) {
+      const api = new HTTP();
+      this.error = '';
+
+      try {
+        await api.post('add-event', event);
+      } catch (error: any) {
+        if (error.response && error.response.status) {
+          this.error = h$.statusCodeMessage(error.response.status);
+        }
       }
     },
   },

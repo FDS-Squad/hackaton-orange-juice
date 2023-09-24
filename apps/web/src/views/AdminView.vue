@@ -1,14 +1,49 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
+import { useEventStore } from '@/stores/eventStore';
+import dayjs from 'dayjs';
 
+const { addNewEvent } = useEventStore();
 const isRemoteLocation = ref(true);
 const textarea = ref<HTMLElement | null>(null);
+const isSubmitted = ref(false);
+const event = reactive({
+  title: '',
+  city: '',
+  state: '',
+  category: '',
+  start_date: {} as Date,
+  end_date: {} as Date,
+  locationType: 'remote',
+  price: 'paid',
+  eventLink: '',
+  imageUrl: '',
+  description: '',
+});
 
 const handleSize = () => {
   const element = textarea.value;
 
   element!.style.height = 'auto';
   element!.style.height = element!.scrollHeight + 'px';
+};
+
+const addEvent = async () => {
+  isSubmitted.value = true;
+
+  addNewEvent(event);
+
+  event.title = '';
+  event.city = '';
+  event.state = '';
+  event.category = '';
+  event.start_date = {} as Date;
+  event.end_date = {} as Date;
+  event.locationType = 'remote';
+  event.price = 'paid';
+  event.eventLink = '';
+  event.imageUrl = '';
+  event.description = '';
 };
 </script>
 
@@ -21,27 +56,39 @@ const handleSize = () => {
         <div class="mb-4">
           <label for="event-name" class="sr-only">Nome do evento</label>
           <input
+            v-model="event.title"
             type="text"
             class="form-control mb-3"
             id="event-name"
-            placeholder="Título do evento" />
+            placeholder="Título do evento"
+            required />
 
           <fieldset class="border-0 d-flex gap-3 mb-3">
             <label for="start-date" class="sr-only">Data de início</label>
-            <input type="date" class="form-control" id="start-date" />
+            <input
+              v-model="event.start_date"
+              type="date"
+              class="form-control"
+              id="start-date"
+              required />
 
             <label for="end-date" class="sr-only">Data de fim</label>
-            <input type="date" class="form-control" id="end-date" />
+            <input
+              v-model="event.end_date"
+              type="date"
+              class="form-control"
+              id="end-date" />
           </fieldset>
 
           <fieldset class="mb-3">
             <div class="form-check form-check-inline">
               <input
+                v-model="event.locationType"
                 class="form-check-input"
                 type="radio"
                 name="event-location"
                 id="online-event"
-                value="online"
+                value="remote"
                 @change="isRemoteLocation = true"
                 checked />
               <label class="form-check-label" for="online-event">
@@ -50,6 +97,7 @@ const handleSize = () => {
             </div>
             <div class="form-check form-check-inline">
               <input
+                v-model="event.locationType"
                 class="form-check-input"
                 type="radio"
                 name="event-location"
@@ -62,11 +110,12 @@ const handleSize = () => {
             </div>
             <div class="form-check form-check-inline">
               <input
+                v-model="event.locationType"
                 class="form-check-input"
                 type="radio"
                 name="event-location"
                 id="hybrid-event"
-                value="hybrid"
+                value="both"
                 @change="isRemoteLocation = false" />
               <label class="form-check-label" for="hybrid-event">
                 híbrido
@@ -76,22 +125,27 @@ const handleSize = () => {
             <div v-if="!isRemoteLocation" class="d-flex gap-3 mt-3">
               <label for="city" class="sr-only">Cidade</label>
               <input
+                v-model="event.city"
                 type="text"
                 class="form-control w-75"
                 id="city"
-                placeholder="Cidade" />
+                placeholder="Cidade"
+                required />
               <label for="province" class="sr-only">Estado</label>
               <input
+                v-model="event.state"
                 type="text"
                 class="form-control w-25"
-                id="province"
-                placeholder="Estado" />
+                id="state"
+                placeholder="Estado"
+                required />
             </div>
           </fieldset>
 
           <fieldset class="mb-3">
             <div class="form-check form-check-inline">
               <input
+                v-model="event.price"
                 class="form-check-input"
                 type="radio"
                 name="price"
@@ -102,6 +156,7 @@ const handleSize = () => {
             </div>
             <div class="form-check form-check-inline">
               <input
+                v-model="event.price"
                 class="form-check-input"
                 type="radio"
                 name="price"
@@ -115,34 +170,42 @@ const handleSize = () => {
 
           <label for="event-url" class="sr-only">Link do evento</label>
           <input
+            v-model="event.eventLink"
             type="text"
             class="form-control mb-3"
             id="event-url"
-            placeholder="Link do evento" />
+            placeholder="Link do evento"
+            required />
 
           <label for="image-url" class="sr-only">
             Imagem propaganda do evento
           </label>
           <input
+            v-model="event.imageUrl"
             type="text"
             class="form-control mb-3"
             id="image-url"
-            placeholder="Imagem propaganda do evento" />
+            placeholder="Imagem propaganda do evento"
+            required />
 
           <label for="tags" class="sr-only">Tags do evento</label>
           <input
+            v-model="event.category"
             type="text"
             class="form-control mb-3"
             id="tags"
-            placeholder="Tags do evento" />
+            placeholder="Tags do evento"
+            required />
 
           <label for="description" class="sr-only">Descrição do evento</label>
           <textarea
+            v-model="event.description"
             ref="textarea"
             id="description"
             class="form-control overflow-hidden w-100"
             placeholder="Descrição do evento"
-            @input="handleSize"></textarea>
+            @input="handleSize"
+            required></textarea>
         </div>
 
         <div class="actions d-flex justify-content-between w-75 mx-auto">
