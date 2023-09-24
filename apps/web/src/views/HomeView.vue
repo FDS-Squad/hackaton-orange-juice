@@ -38,6 +38,12 @@ import Search from '@/components/Search.vue';
 </template>
 
 <style scoped>
+h2 {
+  background-image: var(--hackaton-bg-vertical);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 .events {
   grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
   img {

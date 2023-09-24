@@ -23,9 +23,14 @@
   --neutral: #374957;
   --black: #000;
   --white: #fff;
+  --hackaton-bg-vertical: linear-gradient(62deg, #c8ffa7 29.5%, #8cb4d3 86.65%);
+  --hackaton-neutral-normal: #8cb4d3;
+  --hackaton-primary-normal: #00091d;
+  --hackaton-primary-darker: #00030a;
 }
 
 body {
+  background-color: var(--hackaton-primary-darker);
   padding-right: 0 !important;
   overflow-y: auto !important;
 }
@@ -43,6 +48,12 @@ main {
   @media screen and (min-width: 1280px) {
     padding: 30px 60px;
   }
+}
+
+button:not([class*='carousel-control']) {
+  background-color: var(--hackaton-neutral-normal) !important;
+  border: 1px solid var(--white) !important;
+  color: var(--hackaton-primary-normal) !important;
 }
 
 textarea {
