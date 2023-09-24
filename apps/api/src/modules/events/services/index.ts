@@ -1,1 +1,1 @@
-export * from './EventsListService';
+export * from './events-list-service';

@@ -1,5 +1,5 @@
 import { IEvents } from 'interfaces';
-import { EventsRepository } from '../repository/EventsRepository';
+import { EventsRepository } from '../repository/events-repository';
 
 export class EventsListService {
   private repository;
