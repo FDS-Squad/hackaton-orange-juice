@@ -10,16 +10,42 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Category {
+  BOOTCAMP
+  COMMUNITY
+  CONFERENCE
+  HACKATON
+  LECTURE
+  WORKSHOP
+}
+
+enum LocationType {
+  REMOTE
+  IN_PERSON
+  BOTH
+}
+
+enum Price {
+  FREE
+  PAID
+  BOTH
+}
+
 model Events {
-  id         String   @id @default(uuid())
-  title      String
-  city       String
-  state      String
-  category   String
-  start_date DateTime
-  end_date   DateTime
-  create_at  DateTime @default(now())
-  update_at  DateTime @updatedAt
+  id           String       @id @default(uuid())
+  title        String
+  description  String
+  category     Category
+  city         String?
+  state        String?
+  locationType LocationType
+  price        Price
+  eventLink    String
+  imageUrl     String
+  startDate    DateTime
+  endDate      DateTime
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
 
   @@map("events")
 }
