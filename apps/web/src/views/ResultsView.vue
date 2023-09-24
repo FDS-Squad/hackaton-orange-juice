@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import Search from '@/components/Search.vue';
 import { useEventStore } from '@/stores/eventStore';
 

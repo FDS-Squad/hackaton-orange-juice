@@ -25,8 +25,10 @@
   --white: #fff;
   --hackaton-bg-vertical: linear-gradient(62deg, #c8ffa7 29.5%, #8cb4d3 86.65%);
   --hackaton-neutral-normal: #8cb4d3;
+  --hackaton-neutral-normal-hover: #7ea2be;
   --hackaton-primary-normal: #00091d;
   --hackaton-primary-darker: #00030a;
+  --hackaton-primary-normal-hover: #00081a;
 }
 
 body {
@@ -50,7 +52,8 @@ main {
   }
 }
 
-button:not([class*='carousel-control']) {
+button:not([class*='carousel-control']),
+a.btn {
   background-color: var(--hackaton-neutral-normal) !important;
   border: 1px solid var(--white) !important;
   color: var(--hackaton-primary-normal) !important;
