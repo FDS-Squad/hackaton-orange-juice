@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
+import Switch from './Switch.vue';
+import LoginForm from './LoginForm.vue';
 
 const route = useRoute();
 const btnClose = ref<HTMLElement | null>(null);
@@ -20,13 +22,7 @@ watch(() => route.fullPath, watchRouteChange);
       <h1 class="logo m-0"></h1>
 
       <div class="navigation d-flex gap-3">
-        <div class="d-flex align-items-center gap-1">
-          <v-icon name="fa-moon" color="yellow" />
-          <button class="switch d-flex rounded-4">
-            <v-icon name="fa-circle" color="#212529" />
-          </button>
-          <v-icon name="fa-sun" color="yellow" />
-        </div>
+        <Switch />
 
         <button
           class="btn btn-primary"
@@ -55,22 +51,7 @@ watch(() => route.fullPath, watchRouteChange);
             <RouterLink to="/admin" class="d-block py-2 px-4 mb-1">
               Painel do Administrador
             </RouterLink>
-            <form class="form">
-              <label for="email" class="sr-only">Insira seu e-mail</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="e-mail"
-                class="mb-2" />
-              <label for="password" class="sr-only">Insira sua senha</label>
-              <input type="password" id="password" placeholder="senha" />
-              <p class="reminder">
-                Esqueceu sua senha? <a href="#">Clique aqui</a>
-              </p>
-              <button type="submit" class="btn btn-primary d-block mx-auto">
-                Entrar
-              </button>
-            </form>
+            <LoginForm />
             <p class="text-center">
               É novo e tem eventos a incluir? <a href="#">Cadastre-se</a>
             </p>
@@ -95,11 +76,6 @@ header {
 
   .navigation {
     width: fit-content;
-    .switch {
-      background: #ccc;
-      border: 2px solid #ccc;
-      width: 40px;
-    }
   }
 
   .offcanvas-body {
@@ -107,14 +83,6 @@ header {
       &:hover,
       &.router-link-exact-active {
         background: #ccc;
-      }
-    }
-
-    .form {
-      margin: 5rem auto;
-      width: 15rem;
-      .reminder {
-        margin: 40px auto;
       }
     }
   }

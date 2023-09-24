@@ -25,6 +25,11 @@
   --white: #fff;
 }
 
+body {
+  padding-right: 0 !important;
+  overflow-y: auto !important;
+}
+
 #app {
   display: grid;
   font-family: var(--candara), var(--open-sans), sans-serif;
