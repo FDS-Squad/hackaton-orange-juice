@@ -1,3 +1,4 @@
+import { IEvents } from 'interfaces';
 import { EventsRepository } from '../repository/EventsRepository';
 
 export class EventsListService {
@@ -7,7 +8,7 @@ export class EventsListService {
     this.repository = repository;
   }
 
-  public async execute() {
+  public async execute(): Promise<IEvents> {
     return await this.repository.listEvents();
   }
 }

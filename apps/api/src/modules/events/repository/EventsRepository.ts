@@ -1,7 +1,8 @@
+import { IEvents } from 'interfaces';
 import db from '../../../utils/prisma';
 
 export class EventsRepository {
-  async listEvents() {
+  async listEvents(): Promise<IEvents> {
     return db.events.findMany();
   }
 }
