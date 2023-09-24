@@ -1,5 +1,9 @@
+import dayjs from 'dayjs';
+import type { IEvent } from '@/stores/eventStore';
+
 export interface IHelpers {
   statusCodeMessage: (status: keyof typeof statusMessages) => string;
+  sortByDate: (...args: IEvent[]) => number;
 }
 
 const statusMessages = {
@@ -21,6 +25,14 @@ const statusMessages = {
 const helpers: IHelpers = {
   statusCodeMessage(status: keyof typeof statusMessages) {
     return statusMessages[status] || statusMessages.default;
+  },
+  sortByDate(a, b) {
+    const dateA = dayjs(a.start_date);
+    const dateB = dayjs(b.start_date);
+
+    if (dateA.isBefore(dateB)) return -1;
+    if (dateA.isAfter(dateB)) return 1;
+    return 0;
   },
 };
 

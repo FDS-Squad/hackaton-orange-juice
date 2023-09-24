@@ -31,6 +31,13 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/AdminView.vue'),
         meta: { title: 'Tech42 | Admin' },
       },
+      {
+        path: '/events/:search',
+        name: 'results',
+        props: true,
+        component: () => import('../views/ResultsView.vue'),
+        meta: { title: 'Tech42 | Results' },
+      },
     ],
   },
   // {
