@@ -11,13 +11,17 @@ interface IEventStore {
 }
 
 export interface IEvent {
-  id: 'string';
+  id?: string;
   title: string;
   city: string;
   state: string;
   category: string;
   start_date: Date;
   end_date: Date;
+  locationType: string;
+  price: string;
+  eventLink: string;
+  imageUrl: string;
 }
 
 export const useEventStore = defineStore('event-store', {
@@ -33,6 +37,14 @@ export const useEventStore = defineStore('event-store', {
       loadData(['eventList']).then((resp) => {
         console.log(resp[0].data);
         // this.eventList = resp[0].data.eventList;
+      });
+    },
+    async addNewEvent(event: IEvent) {
+      const { postData } = useMainStore();
+
+      postData(event).then(() => {
+        console.log('enviou');
+        this.getAllEvents();
       });
     },
     searchEvents(date: 'today' | 'tomorrow' | 'this-week' | 'this-month') {

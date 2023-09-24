@@ -44,7 +44,9 @@ watch(() => route.fullPath, watchRouteChange);
               aria-label="Fechar menu"></button>
           </div>
           <nav class="offcanvas-body px-0">
-            <RouterLink to="/" class="d-block py-2 px-4 mb-1">Home</RouterLink>
+            <RouterLink to="/home" class="d-block py-2 px-4 mb-1"
+              >Home</RouterLink
+            >
             <RouterLink to="/event-details" class="d-block py-2 px-4 mb-1">
               Detalhes
             </RouterLink>
