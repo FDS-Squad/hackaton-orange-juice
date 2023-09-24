@@ -2,11 +2,16 @@ import { EventsRepository } from '../../../src/modules/events/repository/events-
 import { EventsListService } from '../../../src/modules/events/services/events-list-service';
 
 describe('EventsListService', () => {
-  it('should return a promise of type IEvent', async () => {
+  const makeSut = (): EventsListService => {
     const repository = new EventsRepository();
-    const sut = new EventsListService(repository);
+    return new EventsListService(repository);
+  };
+
+  it('should return a promise of type IEvent', async () => {
+    const sut = makeSut();
 
     const response = await sut.execute();
+
     expect(Array.isArray(response)).toBe(true);
     response.forEach((event) => {
       expect(typeof event.id).toBe('string');
