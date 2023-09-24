@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { watch } from 'vue';
+import { ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
 const route = useRoute();
+const btnClose = ref<HTMLElement | null>(null);
 
 const watchRouteChange = () => {
-  const btnClose = document.querySelector('.btn-close') as HTMLElement | null;
-  if (btnClose) {
-    btnClose.click();
+  if (btnClose.value) {
+    btnClose.value.click();
   }
 };
 
@@ -21,10 +21,11 @@ watch(() => route.fullPath, watchRouteChange);
 
       <div class="navigation d-flex gap-3">
         <div class="d-flex align-items-center gap-1">
-          <v-icon name="fa-moon" />
+          <v-icon name="fa-moon" color="yellow" />
           <button class="switch d-flex rounded-4">
-            <v-icon name="fa-circle" />
+            <v-icon name="fa-circle" color="#212529" />
           </button>
+          <v-icon name="fa-sun" color="yellow" />
         </div>
 
         <button
@@ -40,6 +41,7 @@ watch(() => route.fullPath, watchRouteChange);
           aria-label="Abrir menu">
           <div class="offcanvas-header justify-content-end">
             <button
+              ref="btnClose"
               type="button"
               class="btn-close"
               data-bs-dismiss="offcanvas"
@@ -47,9 +49,12 @@ watch(() => route.fullPath, watchRouteChange);
           </div>
           <nav class="offcanvas-body px-0">
             <RouterLink to="/" class="d-block py-2 px-4 mb-1">Home</RouterLink>
-            <RouterLink to="/event-details" class="d-block py-2 px-4 mb-1"
-              >About</RouterLink
-            >
+            <RouterLink to="/event-details" class="d-block py-2 px-4 mb-1">
+              Detalhes
+            </RouterLink>
+            <RouterLink to="/admin" class="d-block py-2 px-4 mb-1">
+              Painel do Administrador
+            </RouterLink>
             <form class="form">
               <label for="email" class="sr-only">Insira seu e-mail</label>
               <input
