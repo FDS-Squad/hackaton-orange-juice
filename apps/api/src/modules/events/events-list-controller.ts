@@ -1,7 +1,7 @@
 import { EventsListService } from './services';
 import { Controller, HttpResponse, IEvents } from 'interfaces';
 
-export class EventsListController implements Controller<null, IEvents> {
+export class EventsListController implements Controller {
   private readonly eventsListService: EventsListService;
 
   constructor(eventsListService: EventsListService) {
