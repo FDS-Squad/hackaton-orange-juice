@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import Carousel from '@/components/Carousel.vue';
+import { defineProps } from 'vue';
 import Search from '@/components/Search.vue';
+import { useEventStore } from '@/stores/eventStore';
+
+const { search } = defineProps(['search']);
+const { filteredEvents } = useEventStore();
 </script>
 
 <template>
@@ -12,13 +16,22 @@ import Search from '@/components/Search.vue';
       <Search />
     </section>
 
-    <section class="wrapper mb-5">
-      <Carousel />
-    </section>
-
     <section>
-      <h2 class="text-center mb-3">Próximos eventos</h2>
+      <h2 class="text-start mb-3">
+        {{
+          search === 'today'
+            ? 'Hoje'
+            : search === 'tomorrow'
+            ? 'Amanhã'
+            : search === 'this-week'
+            ? 'Esta semana'
+            : search === 'this-month'
+            ? 'Este mês'
+            : 'Categoria'
+        }}:
+      </h2>
       <div class="events d-grid gap-4 mb-5">
+        <h3>6 encontrados</h3>
         <div v-for="num in 15" class="card flex-row flex-md-column">
           <img
             src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
@@ -28,8 +41,7 @@ import Search from '@/components/Search.vue';
             <h5 class="card-title text-center">Lorem ipsum dolor sit.</h5>
             <p class="card-text text-center mb-1">08 out 2023</p>
             <p class="card-text text-center mb-1">online</p>
-            <p class="card-text text-center mb-3">gratuito</p>
-            <button class="btn btn-primary d-block mx-auto">Saiba mais</button>
+            <p class="card-text text-center mb-0">gratuito</p>
           </div>
         </div>
       </div>

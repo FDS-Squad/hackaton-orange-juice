@@ -10,6 +10,11 @@ import 'bootstrap/dist/js/bootstrap.js';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
 import * as FaIcons from 'oh-vue-icons/icons/fa';
 
+// TITLE
+router.afterEach((to) => {
+  document.title = to.meta.title?.toString() || 'Carregando...';
+});
+
 import App from './App.vue';
 import router from './router';
 
