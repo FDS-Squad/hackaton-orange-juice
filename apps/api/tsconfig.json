@@ -2,17 +2,7 @@
   "extends": "tsconfig/api.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "paths": {
-      "@/utils/*": [
-        "./utils/*"
-      ],
-      "@/tests/*": [
-        "./tests/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    "baseUrl": "./src",
   },
   "include": [
     "**/*.ts"
