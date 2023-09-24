@@ -27,7 +27,7 @@ const router = useRouter();
           class="card p-3"
           @click="router.push('/event-details')">
           <img
-            src="banner-php-mobile.png"
+            src="/banner-php-mobile.png"
             class="card-img-top"
             alt=""
             aria-hidden="true" />

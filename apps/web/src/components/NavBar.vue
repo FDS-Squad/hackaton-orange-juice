@@ -21,7 +21,7 @@ watch(() => route.fullPath, watchRouteChange);
     <div class="wrapper d-flex align-items-center justify-content-between p-4">
       <h1 class="m-0">
         <RouterLink to="/home" aria-label="Voltar para a Home">
-          <img src="logo.png" alt="Tech42" class="logo" />
+          <img src="/logo.png" alt="Tech42" class="logo" />
         </RouterLink>
       </h1>
 

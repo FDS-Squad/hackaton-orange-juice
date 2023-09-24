@@ -23,7 +23,7 @@ const shareWA = () => {
     <section
       class="event-details text-white wrapper row justify-content-center mt-lg-4 gap-lg-5">
       <div class="card col-12 col-lg-6 p-4 mb-4 w-100">
-        <img src="..." class="card-img-top" alt="..." />
+        <img src="/banner-php-mobile.png" class="card-img-top" alt="..." />
         <div class="card-body pb-0">
           <h5 class="card-title text-center">Lorem ipsum dolor sit.</h5>
           <p class="card-text text-center mb-0">08 out 2023</p>

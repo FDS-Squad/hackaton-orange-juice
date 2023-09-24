@@ -16,7 +16,7 @@ const openModal = () => {
 
 <template>
   <div class="d-flex align-items-center gap-1">
-    <img src="moon.png" alt="" aria-hidden="true" />
+    <img src="/moon.png" alt="" aria-hidden="true" />
     <button class="switch d-flex rounded-4" @click="openModal">
       <span class="fa-circle"></span>
     </button>
