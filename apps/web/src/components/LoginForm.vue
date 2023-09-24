@@ -12,7 +12,9 @@
       id="password"
       class="form-control"
       placeholder="senha" />
-    <p class="reminder">Esqueceu sua senha? <a href="#">Clique aqui</a></p>
+    <p class="reminder text-white">
+      Esqueceu sua senha? <a href="#">Clique aqui</a>
+    </p>
     <button type="submit" class="btn btn-primary d-block mx-auto">
       Entrar
     </button>

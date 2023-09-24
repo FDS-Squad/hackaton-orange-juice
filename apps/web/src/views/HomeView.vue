@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import Carousel from '@/components/Carousel.vue';
 import Search from '@/components/Search.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 </script>
 
 <template>
@@ -19,17 +22,19 @@ import Search from '@/components/Search.vue';
     <section>
       <h2 class="text-center mb-3">Próximos eventos</h2>
       <div class="events d-grid gap-4 mb-5">
-        <div v-for="num in 15" class="card flex-row flex-md-column">
+        <div
+          v-for="num in 6"
+          class="card p-3"
+          @click="router.push('/event-details')">
           <img
-            src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-            class="rounded-start-2 object-fit-cover"
-            alt="..." />
-          <div class="card-body">
-            <h5 class="card-title text-center">Lorem ipsum dolor sit.</h5>
-            <p class="card-text text-center mb-1">08 out 2023</p>
-            <p class="card-text text-center mb-1">online</p>
-            <p class="card-text text-center mb-3">gratuito</p>
-            <button class="btn btn-primary d-block mx-auto">Saiba mais</button>
+            src="banner-php-mobile.png"
+            class="card-img-top"
+            alt=""
+            aria-hidden="true" />
+          <div class="card-body p-0">
+            <p class="card-text text-center fw-bold mb-1">08 out 2023</p>
+            <h5 class="card-title text-center mb-1">Lorem ipsum dolor sit.</h5>
+            <p class="card-text text-center mb-0">online - gratuito</p>
           </div>
         </div>
       </div>
@@ -38,14 +43,28 @@ import Search from '@/components/Search.vue';
 </template>
 
 <style scoped>
+h2 {
+  background-image: var(--hackaton-bg-vertical);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+h2 {
+  background-image: var(--hackaton-bg-vertical);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .events {
   grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
-  img {
-    width: 50%;
-    @media screen and (min-width: 768px) {
-      border-radius: 0.375rem 0.375rem 0 0 !important;
-      width: 100%;
-    }
+}
+
+.card {
+  background: var(--hackaton-neutral-normal);
+  cursor: pointer;
+  &:hover {
+    background: var(--hackaton-neutral-normal-hover);
   }
 }
 </style>

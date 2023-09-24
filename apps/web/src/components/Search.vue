@@ -29,34 +29,34 @@ onMounted(() => {
 
 <template>
   <div class="w-100">
-    <label for="search" class="form-label sr-only"> Pesquisar evento </label>
+    <label for="search" class="form-label sr-only"> pesquisar evento </label>
     <input
       ref="input"
       id="search"
       type="text"
       v-model="eventStore.query"
       class="form-control mx-auto"
-      placeholder="Pesquisar evento" />
+      placeholder="pesquisar evento" />
     <ul
       ref="list"
       class="search-options d-flex flex-wrap justify-content-center gap-3 p-0">
       <li>
-        <button class="btn btn-sm btn-primary" @click="getEvents('today')">
+        <button class="btn btn-sm f-14" @click="getEvents('today')">
           Eventos hoje
         </button>
       </li>
       <li>
-        <button class="btn btn-sm btn-primary" @click="getEvents('tomorrow')">
+        <button class="btn btn-sm f-14" @click="getEvents('tomorrow')">
           Eventos amanhã
         </button>
       </li>
       <li>
-        <button class="btn btn-sm btn-primary" @click="getEvents('this-week')">
+        <button class="btn btn-sm f-14" @click="getEvents('this-week')">
           Eventos nessa semana
         </button>
       </li>
       <li>
-        <button class="btn btn-sm btn-primary" @click="getEvents('this-month')">
+        <button class="btn btn-sm f-14" @click="getEvents('this-month')">
           Eventos nesse mês
         </button>
       </li>

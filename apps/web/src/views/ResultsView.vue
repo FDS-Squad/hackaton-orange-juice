@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import Search from '@/components/Search.vue';
 import { useEventStore } from '@/stores/eventStore';
 
@@ -50,6 +49,13 @@ const { filteredEvents } = useEventStore();
 </template>
 
 <style scoped>
+h2 {
+  background-image: var(--hackaton-bg-vertical);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 .events {
   grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
   img {
