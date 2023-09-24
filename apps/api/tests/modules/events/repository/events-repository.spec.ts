@@ -23,8 +23,10 @@ jest.mock('../../../../src/utils/prisma', () => ({
 }));
 
 describe('EventsRepository', () => {
+  const makeSut = (): EventsRepository => new EventsRepository();
+
   it('should list events', async () => {
-    const sut = new EventsRepository();
+    const sut = makeSut();
     const events = await sut.listEvents();
     expect(events).toEqual([makeFakeEvent()]);
   });
