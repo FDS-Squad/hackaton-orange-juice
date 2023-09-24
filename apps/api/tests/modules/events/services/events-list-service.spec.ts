@@ -1,5 +1,5 @@
-import { EventsRepository } from '../../../src/modules/events/repository/events-repository';
-import { EventsListService } from '../../../src/modules/events/services/events-list-service';
+import { EventsRepository } from '../../../../src/modules/events/repository/events-repository';
+import { EventsListService } from '../../../../src/modules/events/services/events-list-service';
 
 describe('EventsListService', () => {
   const makeSut = (): EventsListService => {
