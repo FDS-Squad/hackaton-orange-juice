@@ -52,6 +52,16 @@ main {
   }
 }
 
+input,
+textarea {
+  background-color: rgba(177, 177, 177, 0.2) !important;
+  color: var(--white) !important;
+}
+
+::placeholder {
+  color: var(--white) !important;
+}
+
 button:not([class*='carousel-control']),
 a.btn {
   background-color: var(--hackaton-neutral-normal) !important;
