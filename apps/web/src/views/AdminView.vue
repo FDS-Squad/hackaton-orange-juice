@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { useEventStore } from '@/stores/eventStore';
-import dayjs from 'dayjs';
+import router from '@/router';
 
-const { addNewEvent } = useEventStore();
+const events = useEventStore();
 const isRemoteLocation = ref(true);
 const textarea = ref<HTMLElement | null>(null);
-const isSubmitted = ref(false);
 const event = reactive({
+  id: events.eventList.length + 1,
   title: '',
   city: '',
   state: '',
   category: '',
-  start_date: {} as Date,
-  end_date: {} as Date,
+  start_date: '',
+  end_date: '',
   locationType: 'remote',
   price: 'paid',
   eventLink: '',
@@ -29,21 +29,26 @@ const handleSize = () => {
 };
 
 const addEvent = async () => {
-  isSubmitted.value = true;
+  const newEvent = { ...event };
 
-  addNewEvent(event);
+  events.addNewEvent(newEvent);
+  events.eventList.push(newEvent);
 
   event.title = '';
   event.city = '';
   event.state = '';
   event.category = '';
-  event.start_date = {} as Date;
-  event.end_date = {} as Date;
+  event.start_date = '';
+  event.end_date = '';
   event.locationType = 'remote';
   event.price = 'paid';
   event.eventLink = '';
   event.imageUrl = '';
   event.description = '';
+
+  setTimeout(() => {
+    router.push('/home');
+  }, 1000);
 };
 </script>
 
@@ -51,8 +56,8 @@ const addEvent = async () => {
   <main>
     <section class="wrapper mt-lg-4 mb-5">
       <h2 class="text-center mb-3 mb-lg-5">Cadastre seu evento tech!</h2>
-
-      <form class="form mx-auto text-white">
+      {{ event }}
+      <form class="form mx-auto text-white" @submit.prevent="addEvent">
         <div class="mb-4">
           <label for="event-name" class="sr-only">Nome do evento</label>
           <input

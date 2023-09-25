@@ -20,8 +20,9 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: 'Tech42 | Home' },
       },
       {
-        path: '/event-details',
+        path: '/event-details/:id',
         name: 'event-details',
+        props: true,
         component: () => import('../views/EventDetailsView.vue'),
         meta: { title: 'Tech42 | Detalhes' },
       },
@@ -40,17 +41,6 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  // {
-  //   path: '/unauthorized',
-  //   name: 'Unauthorized',
-  //   component: NotFound,
-  //   meta: { title: 'Não autorizado' },
-  // },
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   component: NotFound,
-  //   meta: { title: 'Página não encontrada' },
-  // },
 ];
 
 const router = createRouter({
