@@ -56,7 +56,7 @@ const addEvent = async () => {
   <main>
     <section class="wrapper mt-lg-4 mb-5">
       <h2 class="text-center mb-3 mb-lg-5">Cadastre seu evento tech!</h2>
-      {{ event }}
+
       <form class="form mx-auto text-white" @submit.prevent="addEvent">
         <div class="mb-4">
           <label for="event-name" class="sr-only">Nome do evento</label>
