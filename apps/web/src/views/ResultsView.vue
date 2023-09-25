@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import Search from '@/components/Search.vue';
 import { useEventStore } from '@/stores/eventStore';
+import { useRoute, useRouter } from 'vue-router';
+
+const route = useRoute();
+const router = useRouter();
 
 const { search } = defineProps(['search']);
-const { filteredEvents } = useEventStore();
+const events = useEventStore();
 </script>
 
 <template>
   <main>
-    <section class="wrapper mt-lg-4 mb-5">
-      <h2 class="text-center mb-3">
-        Fique por dentro do que está rolando no mundo Tech!
-      </h2>
-      <Search />
-    </section>
-
     <section>
       <h2 class="text-start mb-3">
         {{
@@ -28,19 +25,41 @@ const { filteredEvents } = useEventStore();
             ? 'Este mês'
             : 'Categoria'
         }}:
+        <span class="ps-3"
+          >{{ events.foundEvents?.length }} evento(s) encontrado(s)</span
+        >
       </h2>
+
       <div class="events d-grid gap-4 mb-5">
-        <h3>6 encontrados</h3>
-        <div v-for="num in 15" class="card flex-row flex-md-column">
+        <div
+          v-for="event in events.foundEvents"
+          :key="event.id"
+          class="card p-3"
+          @click="router.push(`/event-details/${event.id}`)">
           <img
-            src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-            class="rounded-start-2 object-fit-cover"
-            alt="..." />
-          <div class="card-body">
-            <h5 class="card-title text-center">Lorem ipsum dolor sit.</h5>
-            <p class="card-text text-center mb-1">08 out 2023</p>
-            <p class="card-text text-center mb-1">online</p>
-            <p class="card-text text-center mb-0">gratuito</p>
+            :src="event.imageUrl"
+            class="card-img-top"
+            onerror="this.onerror=null;this.src='/not-found.png'"
+            alt=""
+            aria-hidden="true" />
+          <div class="card-body p-0">
+            <p class="card-text text-center fw-bold mb-1">
+              {{
+                event.start_date && event.end_date
+                  ? event.start_date + ' - ' + event.start_date
+                  : event.start_date
+              }}
+            </p>
+            <h5 class="card-title text-center mb-1">{{ event.title }}</h5>
+            <p class="card-text text-center mb-0">
+              {{
+                event.locationType === 'in-person'
+                  ? event.city + ' / ' + event.state
+                  : event.locationType === 'both'
+                  ? 'Online • ' + event.city + ' / ' + event.state
+                  : 'Online'
+              }}
+            </p>
           </div>
         </div>
       </div>

@@ -54,11 +54,6 @@ watch(() => route.fullPath, watchRouteChange);
               >Home</RouterLink
             >
             <RouterLink
-              to="/event-details"
-              class="d-block py-2 px-4 mb-1 text-decoration-none fw-bold">
-              Detalhes
-            </RouterLink>
-            <RouterLink
               to="/admin"
               class="d-block py-2 px-4 mb-1 text-decoration-none fw-bold">
               Painel do Administrador

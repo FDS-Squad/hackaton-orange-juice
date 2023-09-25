@@ -31,7 +31,7 @@ const router = useRouter();
       <div
         class="carousel-item active"
         role="button"
-        @click="router.push('/event-details')">
+        @click="router.push('/event-details/1')">
         <img
           src="/banner-php-mobile.png"
           class="d-md-none object-fit-contain w-100"
@@ -49,7 +49,7 @@ const router = useRouter();
       <div
         class="carousel-item"
         role="button"
-        @click="router.push('/event-details')">
+        @click="router.push('/event-details/2')">
         <img
           src="/banner-codecon-mobile.png"
           class="d-md-none object-fit-contain w-100"

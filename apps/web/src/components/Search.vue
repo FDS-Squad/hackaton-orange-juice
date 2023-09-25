@@ -10,8 +10,10 @@ const list = ref<HTMLElement | null>(null);
 
 const eventStore = useEventStore();
 
-const getEvents = (date: 'today' | 'tomorrow' | 'this-week' | 'this-month') => {
-  eventStore.searchEvents(date);
+const getEvents = async (
+  date: 'today' | 'tomorrow' | 'this-week' | 'this-month',
+) => {
+  await eventStore.searchEvents(date);
   router.push(`/events/${date}`);
 };
 
@@ -52,12 +54,12 @@ onMounted(() => {
       </li>
       <li>
         <button class="btn btn-sm f-14" @click="getEvents('this-week')">
-          Eventos nessa semana
+          Eventos em uma semana
         </button>
       </li>
       <li>
         <button class="btn btn-sm f-14" @click="getEvents('this-month')">
-          Eventos nesse mês
+          Eventos em um mês
         </button>
       </li>
     </ul>

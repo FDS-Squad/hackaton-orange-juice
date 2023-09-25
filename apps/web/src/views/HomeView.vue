@@ -35,7 +35,7 @@ onBeforeMount(() => {
       <h2 class="text-center mb-3">Próximos eventos</h2>
       <div class="events d-grid gap-4 mb-5">
         <div
-          v-for="event in events.eventList"
+          v-for="event in events.filteredEvents"
           :key="event.id"
           class="card p-3"
           @click="router.push(`/event-details/${event.id}`)">

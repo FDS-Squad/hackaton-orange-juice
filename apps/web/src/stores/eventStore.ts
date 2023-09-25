@@ -10,6 +10,7 @@ dayjs.extend(isBetween);
 
 interface IEventStore {
   eventList: IEvent[];
+  foundEvents: IEvent[];
   query: string;
 }
 
@@ -78,6 +79,7 @@ export const useEventStore = defineStore('event-store', {
           '"Qual a melhor forma de gerenciar meu sistema Kanban no dia-a-dia?" Para conseguir responder esta pergunta e obter a certificação oficial de Kanban Management Professional, oferecemos o segundo módulo da trilha KMP.Esta aula foca no desenrolar e na operação diária de um sistema Kanban.Nela, mostramos como gerenciar e evoluir uma iniciativa Kanban ao longo do tempo e sem trauma.Você aprenderá a melhorar a agilidade com comprometimento assimétrico e cadências, além de entender as cadências recomendadas, como lidar com métricas e como estabelecer políticas.',
       },
     ] as IEvent[],
+    foundEvents: [],
     query: '',
   }),
 
@@ -93,44 +95,39 @@ export const useEventStore = defineStore('event-store', {
       const { postData } = useMainStore();
 
       postData(event).then(() => {
-        console.log('enviou');
         this.getAllEvents();
       });
     },
     searchEvents(date: 'today' | 'tomorrow' | 'this-week' | 'this-month') {
       const today = dayjs();
       const tomorrow = dayjs().add(1, 'day');
-      const nextWeek = dayjs().add(1, 'week');
+      const nextWeek = dayjs().add(7, 'days');
       const nextMonth = dayjs().add(1, 'month');
 
       switch (date) {
         case 'today':
-          this.eventList = this.eventList.filter((event) => {
+          this.foundEvents = this.eventList.filter((event) => {
             const eventDate = dayjs(event.start_date, 'DD/MM/YYYY');
             return eventDate.isSame(today, 'day');
           });
-          console.log('today: ', today);
           break;
         case 'tomorrow':
-          this.eventList = this.eventList.filter((event) => {
+          this.foundEvents = this.eventList.filter((event) => {
             const eventDate = dayjs(event.start_date, 'DD/MM/YYYY');
             return eventDate.isSame(tomorrow, 'day');
           });
-          console.log('tomorrow: ', tomorrow);
           break;
         case 'this-week':
-          this.eventList = this.eventList.filter((event) => {
+          this.foundEvents = this.eventList.filter((event) => {
             const eventDate = dayjs(event.start_date, 'DD/MM/YYYY');
             return eventDate.isBetween(today, nextWeek, null, '[]');
           });
-          console.log('this week: ', nextWeek);
           break;
         case 'this-month':
-          this.eventList = this.eventList.filter((event) => {
+          this.foundEvents = this.eventList.filter((event) => {
             const eventDate = dayjs(event.start_date, 'DD/MM/YYYY');
             return eventDate.isBetween(today, nextMonth, null, '[]');
           });
-          console.log('this month: ', nextMonth);
           break;
         default:
           return;

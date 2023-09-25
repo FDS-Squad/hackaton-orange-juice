@@ -1,5 +1,8 @@
 import dayjs from 'dayjs';
 import type { IEvent } from '@/stores/eventStore';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+dayjs.extend(customParseFormat);
 
 export interface IHelpers {
   states: Array<object>;
@@ -59,8 +62,8 @@ const helpers: IHelpers = {
     return statusMessages[status] || statusMessages.default;
   },
   sortByDate(a, b) {
-    const dateA = dayjs(a.start_date);
-    const dateB = dayjs(b.start_date);
+    const dateA = dayjs(a.start_date, 'DD/MM/YYYY');
+    const dateB = dayjs(b.start_date, 'DD/MM/YYYY');
 
     if (dateA.isBefore(dateB)) return -1;
     if (dateA.isAfter(dateB)) return 1;
