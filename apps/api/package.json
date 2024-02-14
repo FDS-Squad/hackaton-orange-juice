@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "start": "node ./dist/server.js",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
     "dev": "docker compose -f .docker/docker-compose.yml up -d && npx prisma generate && npx prisma migrate dev && nodemon",
     "lint": "eslint",
