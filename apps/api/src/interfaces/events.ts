@@ -1,5 +1,3 @@
-import { Category, LocationType, Price } from '@prisma/client';
-
 interface IEvent {
   id: string;
   title: string;
@@ -8,9 +6,15 @@ interface IEvent {
   imageUrl: string;
   city?: string | null;
   state?: string | null;
-  locationType: LocationType;
-  price: Price;
-  category: Category;
+  locationType: 'REMOTE' | 'IN_PERSON' | 'BOTH';
+  price: 'FREE' | 'PAID' | 'BOTH';
+  category:
+    | 'BOOTCAMP'
+    | 'COMMUNITY'
+    | 'CONFERENCE'
+    | 'HACKATON'
+    | 'LECTURE'
+    | 'WORKSHOP';
   startDate: Date;
   endDate: Date;
   createdAt: Date;
